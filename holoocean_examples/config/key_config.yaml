@@ -1,0 +1,36 @@
+/holoocean/**:
+  ros__parameters:
+    relative_path: true
+    # TorpedoAUV + fossen torpedo model → five element u command
+    scenario_path: 'config/torpedo_fossen.json'
+
+holoocean:
+  holoocean_node:
+    ros__parameters:
+      use_sim_time: true
+      draw_arrow: false
+      show_viewport: true
+
+  key_holoocean:
+    ros__parameters:
+      use_sim_time: true
+
+      # Key event topics of the ROS keyboard node.
+      # keyboard_msgs/Key is used when available, otherwise std_msgs/String.
+      key.down_topic: 'keyboard/keydown'
+      key.up_topic:   'keyboard/keyup'
+
+      # Extra keys
+      key.toggle_enable: 'space'   # arm / disarm
+      key.reset:         'r'       # reset the simulation
+
+      # Command limits
+      fin.max_angle: 45.0    # fin deflection limit, degrees
+      thrust.max:    100.0   # thruster command limit
+
+      # Re-publish the current command at a fixed rate (0 disables)
+      publish_rate: 10.0
+
+      # Agent names and types are loaded from the scenario file.
+      # Keys 1..9 select the agent at index i-1 in the scenario agents list.
+      agents.default: 'auv0'
