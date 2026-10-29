@@ -1,4 +1,6 @@
-
+#VScode
+**/.vscode/
+agent/
 # Ignore ROS 2 workspace build artifacts
 build/
 install/
